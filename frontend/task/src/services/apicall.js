@@ -14,10 +14,10 @@ export async function loginuser(data){
 }
 
 export async function create(data){
-    return await axios.post("http://127.0.0.1:8000/tasks/",data,{headers : getAuthHeaders()})
+    return await axios.post("http://127.0.0.1:8000/",data,{headers : getAuthHeaders()})
 }
 export async function alltask(){
-    return await axios.get("http://127.0.0.1:8000/tasks/",{headers : getAuthHeaders()})
+    return await axios.get("http://127.0.0.1:8000/",{headers : getAuthHeaders()})
 }
 // export async function logouttuser(data){
 //     return await axios.post("http://127.0.0.1:8000/logout/",data)
@@ -27,11 +27,11 @@ export async function deletetask(id){
     return await axios.delete(`http://127.0.0.1:8000/tasks/${id}/`,{headers : getAuthHeaders()})
 }
 export async function detailtask(id){
-    return await axios.get(`http://127.0.0.1:8000/tasks/${id}/`,{headers : getAuthHeaders()})
+    return await axios.get(`http://127.0.0.1:8000/details/${id}/`,{headers : getAuthHeaders()})
 }
 
 export async function edittask(id,data){
-    return await axios.put(`http://127.0.0.1:8000/tasks/${id}/`,data,{headers : getAuthHeaders()})
+    return await axios.put(`http://127.0.0.1:8000/details/${id}/`,data,{headers : getAuthHeaders()})
 }
 
 export async function searchdetail(word) {

@@ -36,7 +36,7 @@ function Register() {
             onChange={(event)=>{setdata({...data,'email':event.target.value})}}    />
         </div>
        
-        <button type="submit" className="btn btn-success w-100">register </button>
+        <button type="submit" className="btn btn-success w-100">Register </button>
       </form>
     </div>
   )

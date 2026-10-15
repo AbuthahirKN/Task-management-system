@@ -4,7 +4,7 @@ import { create } from '../services/apicall';
 
 function AddTask() {
     const navigate = useNavigate();
-    const[data,setdata]=useState({title:"",description:"",status:"",due_at:"",});
+    const[data,setdata]=useState({title:"",description:"",status:"",priorit:"",due_at:"",});
     async function addtask(event){
         event.preventDefault();
         let res= await create(data)
@@ -32,6 +32,10 @@ function AddTask() {
           <input className="form-control" placeholder="Status"
                  onChange={event=>setdata({...data, status:event.target.value})}/>
         </div>
+        <div className="mb-3">
+          <input className="form-control" placeholder="Priority" 
+                 onChange={event=>settask({...task, priority:event.target.value})}/>
+        </div>  
         <div className="mb-3">
           <input className="form-control" placeholder="Due_date"
                  onChange={event=>setdata({...data, due_at:event.target.value})}/>
