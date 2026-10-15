@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.TaskList.as_view()),
     path('register/',views.RegisterUser.as_view()),
-    path('login/', obtain_auth_token, name='api_token_auth'),
-    path('details/<int:pk>',views.TaskDetails.as_view()),
+    path('login/', obtain_auth_token),
+    path('details/<int:pk>/',views.TaskDetails.as_view()),
+    path('search/',views.Searchtask.as_view()),
 ]

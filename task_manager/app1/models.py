@@ -13,6 +13,6 @@ class Task(models.Model):
     status=models.CharField(max_length=25,choices=statuschoice,default='in progress')
     priority=models.CharField(max_length=25,choices=prioritychoice,default='medium')
     created_at=models.DateTimeField(auto_now_add=True)
-    due_at = models.DateField(blank=True)
+    due_at = models.DateField(blank=True,null=True)
     def __str__(self):
         return self.title
