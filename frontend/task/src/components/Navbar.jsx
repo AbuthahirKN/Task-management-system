@@ -1,6 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 function Navbar() {
+  const [word,setword]= useState('')
+  const navigate=useNavigate()
+  function searchdetail(event){
+    event.preventDefault()
+    const searchword=word.trim()
+    if(!searchword){
+      return
+    }
+    navigate(`/search?title=${encodeURIComponent(searchword)}`)
+    
+  }
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -11,27 +22,27 @@ function Navbar() {
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-       <li class="nav-item"><Link to="/"><a class="nav-link" href="#">Home</a></Link></li>
+       <li class="nav-item"><Link class="nav-link" to="/">Home</Link></li>
 
-        <li class="nav-item"><Link to="/register"><a class="nav-link" href="#">Register</a></Link>
+        <li class="nav-item"><Link class="nav-link" to="/register">Register</Link>
           
         </li>
-         <li class="nav-item"><Link to="/login"> <a class="nav-link" href="#">Login</a></Link>
+         <li class="nav-item"><Link class="nav-link" to="/login"> Login</Link>
          
         </li>
-         <li class="nav-item"><Link to="addtask"><a class="nav-link" href="#">AddTask</a></Link>
+         <li class="nav-item"><Link class="nav-link" to="addtask">AddTask</Link>
         
         </li>
 
-        <li class="nav-item"><Link to="/tasks"> <a class="nav-link" href="#">Tasks</a></Link>
+        <li class="nav-item"><Link class="nav-link" to="/tasks"> Tasks</Link>
         </li>
-        <li class="nav-item"><Link to="/edit"> <a class="nav-link" href="#">edit</a></Link>
+        <li class="nav-item"><Link class="nav-link" to="/edit"> edit</Link>
         </li>
     
        
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"></input>
+      <form class="d-flex" onSubmit={searchdetail}>
+        <input class="form-control me-2" type="search" value={word}  onChange={(event)=>{setword(event.target.value)}} placeholder="Search" aria-label="Search"></input>
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>

@@ -34,7 +34,7 @@ export async function edittask(id,data){
     return await axios.put(`http://127.0.0.1:8000/details/${id}/`,data,{headers : getAuthHeaders()})
 }
 
-export async function searchdetail(word) {
-    let p={'search':word}
-    return await axios.get("http://127.0.0.1:8000//search",{params:p,headers:getAuthHeaders()})
+export async function searchdetail(params) {
+    let p={'title':params.title,'status':params.status,'priority':params.priority}
+    return await axios.get("http://127.0.0.1:8000/search/",{params:p,headers:getAuthHeaders()})
 }

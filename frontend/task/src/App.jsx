@@ -10,6 +10,8 @@ import AddTask from './components/AddTask'
 import TaskList from './components/TaskList'
 import Edit from './components/Edit'
 import Navbar from './components/Navbar'
+import Search from './components/Search'
+import Home from './components/Home'
 
 
 function App() {
@@ -23,12 +25,13 @@ function App() {
      <h1>Task Manager</h1>   
      
      <Routes>
-      {/* <Route path ='/' element={<Home/>}></Route> */}
+      <Route path ='/' element={<Home/>}></Route>
       <Route path ='/register' element={<Register/>}></Route>
       <Route path ='/login' element={<Login/>}></Route>
       <Route path ='/addtask' element={<AddTask/>}></Route>
       <Route path='/tasks' element={<TaskList/>}></Route>
       <Route path='/edit' element={<Edit/>}></Route>
+      <Route path= "/search" element={<Search/>}></Route>
      </Routes>
   
     
